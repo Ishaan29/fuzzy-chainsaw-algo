@@ -1,5 +1,5 @@
-miss: test.cpp
-	g++ test.cpp -o test
-	./test
+miss: *.cpp
+	g++ *.cpp -o a
+	./a
 clean:
 	rm *.o test
