@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-
 #define LIMIT 100
 #define PLIMIT 10000010
 #define MOD 1000000007ll

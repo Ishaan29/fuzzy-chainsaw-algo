@@ -2,6 +2,10 @@
     "python.linting.pylintEnabled": true,
     "C_Cpp.errorSquiggles": "Disabled",
     "files.associations": {
-        "ios": "cpp"
+        "ios": "cpp",
+        "iostream": "cpp",
+        "__tree": "cpp",
+        "bitset": "cpp",
+        "set": "cpp"
     }
 }
