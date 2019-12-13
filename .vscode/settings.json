@@ -6,6 +6,7 @@
         "iostream": "cpp",
         "__tree": "cpp",
         "bitset": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "vector": "cpp"
     }
 }
