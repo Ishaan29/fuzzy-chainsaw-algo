@@ -7,6 +7,7 @@
         "__tree": "cpp",
         "bitset": "cpp",
         "set": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "functional": "cpp"
     }
 }

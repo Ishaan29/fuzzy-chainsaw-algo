@@ -11,6 +11,7 @@ typedef pair<ll, ll> ii;
 int gcd(ll a, ll b) { return (b==0)?a:gcd(b, a%b); }
 int lcm(ll a, ll b) { ll i=(a/gcd(a,b))*b; assert(i>0); return i; }
 int dx[4] = {0, 1, 0, -1}, dy[4] = {-1, 0, 1, 0};
+//  ***** FUNCTION *****
 
 //  ***** MAIN *****
 int main(){
