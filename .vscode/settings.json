@@ -8,6 +8,7 @@
         "bitset": "cpp",
         "set": "cpp",
         "vector": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "iosfwd": "cpp"
     }
 }

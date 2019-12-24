@@ -1,6 +1,6 @@
 // Problem is to generate all the K length subset of
 // a given set.
-// Ex: [1,2,3,4] with length K
+// Ex: [1,2,3,4] with length K = 3
 // output: [1,2,3],[2,3,4],[1,3,4]
 #include<bits/stdc++.h>
 using namespace std;
