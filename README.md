@@ -5,6 +5,7 @@
 ## __DYNAMIC PROGRAMMING__
 * Use static allocation for dp grid. eg `static int dp[5001][5001];`
 * General formula for n-steps problem `dp[i] = dp[i-1] + dp[i-2] + dp[i-3] + ...... + dp[i-n];`.
+* The important point is that `top-down = recursive` and `bottom-up = iterative`.
 
 ## __LINKEDLIST__
 
