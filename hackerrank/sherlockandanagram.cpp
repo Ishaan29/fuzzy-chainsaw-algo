@@ -6,6 +6,7 @@ using namespace std;
 #define PLIMIT 10000010
 #define MOD 1000000007ll
 #define INF 1e9
+#define MAX_CHAR 26
 typedef long long ll;
 typedef pair<ll, ll> ii;
 int gcd(ll a, ll b) { return (b==0)?a:gcd(b, a%b); }
@@ -18,7 +19,7 @@ int sherlockAndAnagrams(string str) {
     for (int i=0; i<N; i++) { 
         vector<int> freq(MAX_CHAR, 0);// @params:= 26 ints with value 0
         for (int j=i; j<N; j++){ 
-            freq[toNum(str[j])]++;
+            freq[str[j] - '0']++;
             mp[freq]++; 
         } 
     }
@@ -33,6 +34,10 @@ int sherlockAndAnagrams(string str) {
     return result;
 }
 //  ***** MAIN *****
+/*
+ *TODO:= Write a driver function for the problem
+ *
+ **/
 int main(){
   //ios::sync_with_stdio(false);
   cin.tie(NULL);
