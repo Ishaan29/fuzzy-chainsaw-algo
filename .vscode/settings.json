@@ -10,5 +10,6 @@
         "vector": "cpp",
         "functional": "cpp",
         "iosfwd": "cpp"
-    }
+    },
+    "python.pythonPath": "/usr/bin/python3"
 }
