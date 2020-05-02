@@ -9,7 +9,8 @@
         "set": "cpp",
         "vector": "cpp",
         "functional": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "queue": "cpp"
     },
     "python.pythonPath": "/usr/bin/python3"
 }
