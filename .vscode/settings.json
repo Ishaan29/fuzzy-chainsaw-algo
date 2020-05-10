@@ -10,7 +10,8 @@
         "vector": "cpp",
         "functional": "cpp",
         "iosfwd": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "__functional_base": "cpp"
     },
     "python.pythonPath": "/usr/bin/python3"
 }
