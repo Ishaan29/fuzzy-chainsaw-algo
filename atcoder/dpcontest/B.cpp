@@ -10,16 +10,12 @@ int main(){
     vector<int> dp(n ,INF);
     dp[0] = 0;
     for(int i = 0; i< n; i++){
-        for(int j = i + 1; j <= k; j++){
-            if(j <= n){
+        for(int j = i + 1; j <= i + k; j++){
+            if(j < n){
                 dp[j] = min(dp[j], dp[i] + abs(h[i] - h[j]));
             }
         }
     }
-    for (auto a: dp){
-        cout<<a<<" ";
-    }
-    cout<<endl;
     cout<<dp[n-1];
     
 }
