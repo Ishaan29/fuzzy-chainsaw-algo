@@ -1,6 +1,7 @@
 # NOTES 
 ## __STRINGS__
 * Continuous string combinations formula `n*(n+1)/2`.
+* `strtok()` can be used to get `delimiter` seperated strings.
 
 ## __DYNAMIC PROGRAMMING__
 * Use static allocation for dp grid. eg `static int dp[5001][5001];`
