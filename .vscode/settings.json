@@ -15,7 +15,8 @@
         "ostream": "cpp",
         "__locale": "cpp",
         "filesystem": "cpp",
-        "locale": "cpp"
+        "locale": "cpp",
+        "chrono": "cpp"
     },
     "python.pythonPath": "/usr/bin/python3"
 }
