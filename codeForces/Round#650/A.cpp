@@ -46,36 +46,29 @@ vi g[N];
 int a[N];
 
 void solve() {
-  int n; cin>>n;
-  int evn = 0; int odd = 0;
-  int arr[n];
-  for(int i = 0; i < n; i++){
-    int t; cin>>t;
-    arr[i] = t;
+  string s; cin>>s;
+  string ans;
+  int l = s.length();
+  if(l <= 2){
+      cout<<s<<endl;
+      return;
+  }else{
+      ans = s[0];
+      for(int i = 1; i < l-2; i+=2){
+          ans += s[i];
+      }
+      ans += s[l-1];
   }
-  for(int i = 0; i < n; i++){
-    int t; arr[i];
-    if((t&1) && ((i&1)^1)){
-      cout<<"even"<<endl;
-    }else if(((t&1)^1) && (i&1)){
-      cout<<"odd"<<endl;
-    }
-  }
-  // if(min(evn, odd) > (n/2)){
-  //   cout<<-1<<endl;
-  //   //return ;
-  // }else{
-  //   cout<<min(evn, odd)<<endl;
-  // }
-  
-
+//   cout<<s[l-1]<<endl;
+  cout<<ans<<endl;
 }
 
 int main() {
     ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
-    int t; cin >> t;
+    int t;
+    cin >> t;
     while(t--) {
       solve();
     }

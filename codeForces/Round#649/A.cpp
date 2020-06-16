@@ -95,7 +95,10 @@ int longSubarrWthSumDivByK(int arr[],int n, int k)
         curr_sum += arr[i]; 
           
         // as the sum can be negative, taking modulo twice 
-        mod_arr[i] = ((curr_sum % k) + k) % k;         
+        mod_arr[i] = ((curr_sum % k) + k) % k;
+        if((curr_sum %k) != 0){
+          mod_arr[i] = 
+        }          
     }     
       
     for (int i = 0; i < n; i++) 
@@ -121,7 +124,8 @@ int longSubarrWthSumDivByK(int arr[],int n, int k)
     // required length of longest subarray with 
     // sum divisible by 'k' 
     return max; 
-}  
+}
+ 
 void solve() {
   int n, b; cin>>n>>b;
   // int arr[n];

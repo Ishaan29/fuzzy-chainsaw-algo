@@ -46,29 +46,29 @@ vi g[N];
 int a[N];
 
 void solve() {
-  int n; cin>>n;
-  int evn = 0; int odd = 0;
-  int arr[n];
-  for(int i = 0; i < n; i++){
-    int t; cin>>t;
-    arr[i] = t;
-  }
-  for(int i = 0; i < n; i++){
-    int t; arr[i];
-    if((t&1) && ((i&1)^1)){
-      cout<<"even"<<endl;
-    }else if(((t&1)^1) && (i&1)){
-      cout<<"odd"<<endl;
+    int n;cin>>n;
+    int k; cin>>k;
+    int arr[n];
+    for(int i = 0; i < n; i++){
+        cin>>arr[i];
     }
-  }
-  // if(min(evn, odd) > (n/2)){
-  //   cout<<-1<<endl;
-  //   //return ;
-  // }else{
-  //   cout<<min(evn, odd)<<endl;
-  // }
-  
-
+    int num = 0;
+    int pow = 1;
+    for(int i = n; i > 0; i--){
+        if(arr[i] == 1){
+            num += 2*pow;
+        }
+    }
+    int mask = 0;
+    int p = 1;
+    for(int i = 0; i < n; i++){
+        if(i%k == 0){
+            mask += 2*p;
+        }
+        p++;
+    }
+    int ans = num ^ mask;
+    cout<<__builtin_popcount(ans)<<endl;
 }
 
 int main() {
