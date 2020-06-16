@@ -54,20 +54,29 @@ void solve() {
     arr[i] = t;
   }
   for(int i = 0; i < n; i++){
-    int t; arr[i];
+    int t = arr[i];
     if((t&1) && ((i&1)^1)){
-      cout<<"even"<<endl;
+      evn++;
     }else if(((t&1)^1) && (i&1)){
-      cout<<"odd"<<endl;
+      // cout<<"odd"<<endl;
+      odd++;
     }
+    //deb2(evn,odd);
   }
-  // if(min(evn, odd) > (n/2)){
+  // if(max(evn, odd) > (n/2)){
   //   cout<<-1<<endl;
-  //   //return ;
+  //   //eturn ;
+  // }else if((evn == 0 && odd != 0) || (evn != 0 && odd == 0)){
+  //   cout<<-1<<endl;
   // }else{
   //   cout<<min(evn, odd)<<endl;
   // }
-  
+
+  if(evn == odd){
+    cout<<odd<<endl;
+  }else{
+    cout<<-1<<endl;
+  }
 
 }
 
