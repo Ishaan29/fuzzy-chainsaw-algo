@@ -15,9 +15,10 @@ vector<ll> fibo(ll n){
 }
 int main(){
     long long t = 1;
-    while(t--){
-        ll int k; cin>>k;
-        vector<ll> dp = findfibo(sqrt(k));
-    }
+    ll int k; cin>>k;
+    vector<ll> dp = findfibo(sqrt(k));
+    ll mx = upper_bound(dp.begin(), dp.end(), k);
+
 
 }
+
