@@ -16,7 +16,12 @@
         "__locale": "cpp",
         "filesystem": "cpp",
         "locale": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "memory": "cpp",
+        "regex": "cpp",
+        "utility": "cpp",
+        "type_traits": "cpp",
+        "string": "cpp"
     },
     "python.pythonPath": "/usr/bin/python3"
 }
