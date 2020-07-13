@@ -19,6 +19,6 @@ unsigned long int catalanDP(unsigned int n)
 } 
 int main(){
     unsigned int n;
-    cin>>n;
+    cin>>n;d
     cout<<catalanDP(n)<<endl;
 }
