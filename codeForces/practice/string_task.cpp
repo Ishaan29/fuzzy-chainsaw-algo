@@ -60,19 +60,14 @@ void solve() {
      * TODO :=  
     */
    string s; cin>>s;
-   int len = s.length();
-   string a = "hello";
-   map<char, int> mp; // char and last pos
-   for(int i = 0; i < len; i++){
-       if(mp.find(s[i]) == mp.end()){
-           mp.insert(pair<char, int>(s[i], i));
-       }else{
-           mp[s[i]] == i;
+   set<char> st = {'a','e','i','o','u','y','Y','A', 'E', 'I', 'O','U'};
+   for(int i = 0; i<s.length(); i++){
+       if(st.find(s[i]) == st.end()){
+           putchar('.');
+           putchar(tolower(s[i]));
        }
    }
-   for(auto a: mp){
-       
-   }
+   cout<<endl;
 }
 
 int main() {

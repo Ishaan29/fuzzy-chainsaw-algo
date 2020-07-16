@@ -59,20 +59,9 @@ void solve() {
      * NOTE :=
      * TODO :=  
     */
-   string s; cin>>s;
-   int len = s.length();
-   string a = "hello";
-   map<char, int> mp; // char and last pos
-   for(int i = 0; i < len; i++){
-       if(mp.find(s[i]) == mp.end()){
-           mp.insert(pair<char, int>(s[i], i));
-       }else{
-           mp[s[i]] == i;
-       }
-   }
-   for(auto a: mp){
-       
-   }
+   int n, m, a; cin>>n>>m>>a;
+   long long int ans = ((m + a - 1)/a) * ((n+a -1)/a);
+   cout<<ans<<endl;
 }
 
 int main() {
