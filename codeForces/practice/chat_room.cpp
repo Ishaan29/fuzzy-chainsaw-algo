@@ -62,31 +62,17 @@ void solve() {
    string s; cin>>s;
    int len = s.length();
    string a = "hello";
-   for(int i = 0; i < a.length(); i++){
-       for(int h = 0; h < len; h++){
-           if(s[h] == 'h'){
-               for(int e = h; e < len; e++){
-                   if(s[e] == 'e'){
-                       for(int l = e; l < len; l++){
-                           if(s[l] == 'l'){
-                               for(int l2 = l; l2 < len; l2++){
-                                   if(s[l2]== 'l'){
-                                       for(int o = l2; o < len; o++){
-                                           if(s[o]=='o'){
-                                               cout<<"YES"<<endl;
-                                               return;
-                                           }
-                                       }
-                                   }
-                               }
-                           }
-                       }
-                   }
-               }
-           }
+   map<char, int> mp; // char and last pos
+   for(int i = 0; i < len; i++){
+       if(mp.find(s[i]) == mp.end()){
+           mp.insert(pair<char, int>(s[i], i));
+       }else{
+           mp[s[i]] == i;
        }
    }
-   cout<<"NO"<<endl;
+   for(auto a: mp){
+       
+   }
 }
 
 int main() {
