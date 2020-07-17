@@ -1,1 +1,9 @@
-.t.r
+cnt=1
+cnt=2
+NO
+cnt=1
+NO
+cnt=1
+cnt=2
+cnt=3
+YES
