@@ -1,8 +1,14 @@
-NO
-NO
-YES
-1 50 1
-YES
-10 10 30
-YES
-1 1 1000000000
+pref=11
+First
+pref=8
+Second
+pref=21
+First
+pref=9
+First
+pref=1000000000
+Second
+pref=7
+First
+pref=3
+First
