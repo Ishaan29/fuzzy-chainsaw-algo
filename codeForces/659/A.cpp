@@ -59,41 +59,40 @@ void solve() {
      * NOTE :=
      * TODO :=  
     */
-//    1 2 4 3
-   map<int ,int>mp;
-   vector<int> arr;
    int n; cin>>n;
+   vector<int> arr;
+   int m = 0;
    for(int i = 0; i < n; i++){
        int t; cin>>t;
+       if(t >= m){
+           m = t;
+       }
        arr.push_back(t);
-       if(mp.find(t) == mp.end()){
-           mp.insert(pair<int, int>(t,1));
-       }else{
-           mp[t]++;
-       }
    }
-   int ans = 0;
+    vector<string> vs;
+    for(int i = 0; i < m; i++){
+        cout<<"a";
+    }
+    cout<<endl;
    for(int i = 0; i < n; i++){
-       int x = arr[i];
-       int comp = 4 - x;
-       if(mp.find(comp) != mp.end() && mp.find(comp)->second > 0){
-           ans++;
-           mp[comp]--;
+       int len = 0;
+       if(i == 0){
+           len  = min(m,arr[i]);
+       }else{
+           len = max(arr[i-1], arr[i]);
        }
-   }
-   ans = (ans+1)/2;
-   for(auto m: mp){
-       if(m.second > 0){
-           ans += m.second;
+       for(int j = 0; j < len; j++){
+           cout<<"a";
        }
+       cout<<endl;
    }
-   cout<<ans<<endl;
+   
 }
 
 int main() {
     c_p_c();
     int t = 1;
-     //cin >> t;
+    cin >> t;
     while(t--) {
       solve();
     }
