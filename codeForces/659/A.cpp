@@ -99,3 +99,18 @@ int main() {
 
     return 0;
 }
+
+
+
+% \section{Experience}
+% \runsubsection{INfosys}
+% \descript{| Systems Engineer Intern}
+% \location{Jan 2020 - Mar 2020 | Mysore, KA}
+% \begin{tightemize}
+
+
+% \item Successfully completed one of the most difficult training for a System Engineer
+% Intern.
+% \item Developed and deployed a full-Stack E-Commerce app like amazon using C#, Angular, MySql, SSMS, typeScript and Microsoft Azure cloud.  
+% \end{tightemize}
+% \sectionsep
