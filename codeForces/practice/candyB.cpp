@@ -55,34 +55,55 @@ ll int pow(ll int x, ll int n,ll int mod){
     return (subprob * subprob)%mod;
 }
 void solve() {
-    map<int, int> mp;
     int n; cin>>n;
-    for(int _ = 0; _ < n; _++){
+    vector<ll int> a;
+    vector<ll int> b;
+    
+    int a_min = INT_MAX;
+    int b_min = INT_MAX;
+
+    for(int i = 0; i < n; i++){
         int t; cin>>t;
-        if(mp.find(t) == mp.end()){
-            mp.insert(pair<int,int>(t,1));
-        }else{
-            mp[t]++;
+        if(t <= a_min){
+            a_min = t;
+        }
+        a.push_back(t);
+    }
+    for(int i = 0; i < n; i++){
+        int t; cin>>t;
+        if(t <= b_min){
+            b_min = t;
+        }
+        b.push_back(t);
+    }
+   // deb2(a_min, b_min);
+    ll int cnt = 0;
+    for(int i = 0; i < n; i++){
+        if(a[i] > a_min && b[i] > b_min){
+            int adiff = abs(a[i]-a_min); int bdiff = abs(b[i] - b_min);
+            a[i] -= min(adiff, bdiff);
+            b[i] -= min(adiff, bdiff);
+            cnt += min(adiff, bdiff);
+            if(a[i] > a_min){
+                cnt += abs(a[i] - a_min);
+            }else if(b[i] > b_min){
+                cnt += abs(b[i] - b_min);
+            }
+
+        }else if(a[i] > a_min and b[i] == b_min){
+            cnt += abs(a[i] - a_min);
+        }else if(b[i] > b_min and a[i] == a_min){
+            cnt += abs(b[i] - b_min);
         }
     }
-    int ans = 0;
-    ans += mp[4];
-    ans += min(mp[3], mp[1]);
-    mp[3] = mp[3] - min(mp[3],mp[1]);
-    mp[3] = mp[1] - min(mp[3],mp[1]);
-    ans += mp[3];
-    ans += mp[2]/2;
-    mp[2] = mp[2] - (mp[2]/2);
-    
-
-    cout<<ans<<endl;
+    cout<<cnt<<endl;
 
 }
 
 int main() {
     c_p_c();
     int t = 1;
-     //cin >> t;
+    cin >> t;
     while(t--) {
       solve();
     }

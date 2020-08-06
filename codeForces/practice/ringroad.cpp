@@ -55,34 +55,28 @@ ll int pow(ll int x, ll int n,ll int mod){
     return (subprob * subprob)%mod;
 }
 void solve() {
-    map<int, int> mp;
-    int n; cin>>n;
-    for(int _ = 0; _ < n; _++){
-        int t; cin>>t;
-        if(mp.find(t) == mp.end()){
-            mp.insert(pair<int,int>(t,1));
+    int n; cin>>n; int m; cin>>m;
+    vector<int> arr(m+1);
+    arr[0] = 1;
+    for(int i = 1; i <= m; i++){
+        cin>>arr[i];
+    }
+    ll int ans = 0;
+
+    for(int i = 0; i < m ; i++){
+        if(arr[i] <= arr[i+1]){
+            ans += arr[i+1] - arr[i];
         }else{
-            mp[t]++;
+            ans += n - arr[i] + arr[i+1];
         }
     }
-    int ans = 0;
-    ans += mp[4];
-    ans += min(mp[3], mp[1]);
-    mp[3] = mp[3] - min(mp[3],mp[1]);
-    mp[3] = mp[1] - min(mp[3],mp[1]);
-    ans += mp[3];
-    ans += mp[2]/2;
-    mp[2] = mp[2] - (mp[2]/2);
-    
-
     cout<<ans<<endl;
-
 }
 
 int main() {
     c_p_c();
     int t = 1;
-     //cin >> t;
+    //cin >> t;
     while(t--) {
       solve();
     }
