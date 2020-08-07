@@ -56,39 +56,23 @@ ll int pow(ll int x, ll int n,ll int mod){
 }
 void solve() {
     int n; cin>>n;
-    vector<int> arr;
-    for(int i = 0; i < n; i++){
-        int t; cin>>t;
-        arr.push_back(t);
+    vector<int> cnt(n+1);
+    for(int i = 0; i <n; i++){
+        int x; cin>>x;
+        ++cnt[x];
     }
-    sort(arr.begin(), arr.end());
-    // if(n < 2){
-    //     cout<<0<<endl;
-    //     return;
-    // }
-    ll int mx = arr[n-1] + arr[n-2];
-    ll int mn = arr[0] + arr[1];
-    ll int ans = 0;
-    //deb2(mn,mx);
-    for(int i = mn; i <= mx; i++){
-        int cnt = 0; 
-        for(int j = 0; j < n; j++){
-            for(int k = j; k < n; k++){
-                if(arr[j] + arr[k] == i){
-                    // deb2(arr[j], arr[k]);
-                    // deb(i);
-                    cnt++;
-                    // deb(cnt);
-                    j++;
-                    k++;
-                }
-            }
+    int ans = 0;
+    for(int s = 2; s <= 2*n; s++){
+        int curr = 0;
+        for(int i = 0; i < (s+1) / 2; ++i){
+            if(s-i > n) continue;
+            curr += min(cnt[i], cnt[s-i]);
         }
-        if(cnt >= ans){
-            ans = cnt;
-        }
+        if (s % 2 == 0) curr += cnt[s / 2] / 2;
+        ans = max(ans , curr);
     }
-    cout<<ans<<endl;
+    cout<< ans <<endl;
+
 }
 
 int main() {
