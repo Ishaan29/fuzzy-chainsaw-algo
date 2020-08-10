@@ -55,12 +55,22 @@ ll int pow(ll int x, ll int n,ll int mod){
     return (subprob * subprob)%mod;
 }
 void solve() {
-    int d,c; cin>>d>>c;
-    if(c > d / 2){
-        cout<<1<<endl;
-    }else{
-        cout<<0<<endl;
+    int n; cin>>n;
+    vector<ll int> arr(n,0);
+    for(int i = 0; i < n; i++){
+        cin>>arr[i];
     }
+    sort(arr.begin(), arr.end());
+    int mid = n / 2;
+	printf("%lld", arr[mid]);
+	for(int diff = 1; diff <= n / 2; ++diff) {
+		for(int i : {mid - diff, mid + diff}) {
+			if(0 <= i && i < n) {
+				printf(" %lld", arr[i]);
+			}
+		}
+	}
+	puts("");
 }
 
 int main() {
