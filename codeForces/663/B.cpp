@@ -55,12 +55,30 @@ ll int pow(ll int x, ll int n,ll int mod){
     return (subprob * subprob)%mod;
 }
 void solve() {
-    int d,c; cin>>d>>c;
-    if(c > d / 2){
-        cout<<1<<endl;
-    }else{
-        cout<<0<<endl;
+    int m,n;cin>>m>>n;
+    char arr[m+1][n+1];
+    int r = 0,d = 0;
+    for(int i = 0; i < m; i++){
+        for(int j = 0; j < m; j++){
+            char a; cin>>a;
+            if(a == 'R'){
+                r++;
+            }
+            if(a == 'D'){
+                d++;
+            }
+        }
     }
+    deb2(r,d);
+    int diff = ((n * m) / 2) - 1 ;
+    int cnt = 0;
+    if(diff > d){
+        cnt += abs(diff - d);
+    }
+    if(diff > r){
+        cnt += abs(diff - r);
+    }
+    cout<<cnt<<endl;
 }
 
 int main() {

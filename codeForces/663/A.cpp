@@ -55,12 +55,11 @@ ll int pow(ll int x, ll int n,ll int mod){
     return (subprob * subprob)%mod;
 }
 void solve() {
-    int d,c; cin>>d>>c;
-    if(c > d / 2){
-        cout<<1<<endl;
-    }else{
-        cout<<0<<endl;
+    int n; cin>>n;
+    for(int i = 1; i <= n; i++){
+        cout<<i<<" ";
     }
+    cout<<endl;
 }
 
 int main() {
