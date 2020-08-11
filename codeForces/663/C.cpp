@@ -55,31 +55,19 @@ ll int pow(ll int x, ll int n,ll int mod){
     return (subprob * subprob)%mod;
 }
 void solve() {
-    int m,n;cin>>m>>n;
-    char arr[m+1][n+1];
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++){
-            cin>>arr[i][j];
-        }
+    ll int n; cin>>n;
+    ll int f = 1; ll int p = 1;
+    for(ll int i = 2; i <= n; i++){
+        f = f*i%mod;
+        p = p*2%mod; // no use of fast pow because aromatized id o(N)
     }
-    int cnt = 0;
-    for(int i = 0; i < m; i++){
-        if(arr[i][n-1] == 'R'){
-            cnt++;
-        }
-    }
-    for(int i = 0; i < n; i++){
-        if(arr[m-1][i] == 'D'){
-            cnt++;
-        }
-    }
-    cout<<cnt<<endl;
+    cout<<(f - p + mod)%mod<<endl;
 }
 
 int main() {
     c_p_c();
     int t = 1;
-    cin >> t;
+   // cin >> t;
     while(t--) {
       solve();
     }

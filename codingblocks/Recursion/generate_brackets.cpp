@@ -14,11 +14,7 @@ void generate_brackets(char *out, int n, int idx, int open, int close){
         generate_brackets(out, n, idx+1, open+1, close);
     }
     //select close
-    if(close < open){
-        out[idx] = ')';
-        generate_brackets(out, n, idx+1, open, close+1);
-    }
-    return ;
+   
 }
 
 
