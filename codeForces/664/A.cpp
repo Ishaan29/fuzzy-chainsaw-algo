@@ -55,25 +55,83 @@ ll int pow(ll int x, ll int n,ll int mod){
     return (subprob * subprob)%mod;
 }
 void solve() {
-    int m,n;cin>>m>>n;
-    char arr[m+1][n+1];
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++){
-            cin>>arr[i][j];
-        }
+    ll int a,b,c,d; cin>>a>>b>>c>>d;
+    int odd_cnt = 0;
+    int even_cnt = 0;
+    //cout<<(a==b==c==d);
+    if(a == b && b == c ){
+        cout<<"YES"<<endl;
+        return;
     }
-    int cnt = 0;
-    for(int i = 0; i < m; i++){
-        if(arr[i][n-1] == 'R'){
-            cnt++;
-        }
+    if(a&1){
+        odd_cnt++;
+    }else{
+        even_cnt++;
     }
-    for(int i = 0; i < n; i++){
-        if(arr[m-1][i] == 'D'){
-            cnt++;
-        }
+
+    if(b&1){
+        odd_cnt++;
+    }else{
+        even_cnt++;
     }
-    cout<<cnt<<endl;
+
+    if(c&1){
+        odd_cnt++;
+    }else{
+        even_cnt++;
+    }
+
+    if(d&1){
+        odd_cnt++;
+    }else{
+        even_cnt++;
+    }
+
+    if(odd_cnt == 1){
+        cout<<"YES"<<endl;
+        return;
+    }
+    //deb2(odd_cnt, even_cnt);
+    int m = min(a,min(b,c));
+    a = a-m;
+    b = b-m;
+    c = c-m;
+    d = d+(3*m);
+   
+    even_cnt = 0;
+    odd_cnt = 0;
+    if(a&1){
+        odd_cnt++;
+    }else{
+        even_cnt++;
+    }
+
+    if(b&1){
+        odd_cnt++;
+    }else{
+        even_cnt++;
+    }
+
+    if(c&1){
+        odd_cnt++;
+    }else{
+        even_cnt++;
+    }
+
+    if(d&1){
+        odd_cnt++;
+    }else{
+        even_cnt++;
+    }
+    // deb2(a,b);
+    //  deb2(c,d);
+    if(odd_cnt == 1){
+        cout<<"YES"<<endl;
+    }else{
+        cout<<"NO"<<endl;
+    }
+    return;
+
 }
 
 int main() {
@@ -86,3 +144,4 @@ int main() {
 
     return 0;
 }
+

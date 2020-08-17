@@ -55,25 +55,68 @@ ll int pow(ll int x, ll int n,ll int mod){
     return (subprob * subprob)%mod;
 }
 void solve() {
-    int m,n;cin>>m>>n;
-    char arr[m+1][n+1];
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++){
-            cin>>arr[i][j];
-        }
-    }
-    int cnt = 0;
-    for(int i = 0; i < m; i++){
-        if(arr[i][n-1] == 'R'){
-            cnt++;
-        }
-    }
+    int n; cin>>n;
+    int m = INT_MIN;
+    vector<int> arr;
     for(int i = 0; i < n; i++){
-        if(arr[m-1][i] == 'D'){
-            cnt++;
+        int t; cin>>t;
+        if(t >= m && i != n-1){
+            m = t;
         }
+        arr.push_back(t);
     }
-    cout<<cnt<<endl;
+    //int ans = 0;
+    // for(int i = 0; i < n; i++){
+    //     if(arr[i] == m){
+    //         int mn = m;
+    //         int k = 0;
+    //         for(int j = i; j != m, j <= n; j++){
+    //             if(mn >= arr[j]){
+    //                 mn = arr[j];
+    //             }
+    //             k++;
+    //         }
+    //         ans += m - mn;
+    //         i = i + k;
+    //     }
+    // }
+    // int curr_min = INT_MAX; int curr_max = INT_MAX; int ans = 0; int cnt = 0; int curr_dip = 0;
+    // for(int i = 0; i < n; i++){
+    //     // deb(arr[i]);
+    //     if(arr[i] == m){
+    //         cnt++;
+    //        // cout<<"called "<<arr[i]<<endl; 
+    //         ans += curr_dip;
+    //         curr_dip = 0;
+    //     }
+    //     if(i == n-1){
+    //         curr_dip = max(curr_dip, m - arr[i]);
+    //         ans += curr_dip;
+    //     }
+    //     if(cnt>0){
+    //         curr_dip = max(curr_dip, m - arr[i]);
+    //     }
+    // }
+    // int mx = INT_MIN; int curr_min = INT_MAX; int ans = 0;
+    // for(int i = 0; i < n-1; i++){
+    //     if(arr[i] <= arr[i+1]){ 
+    //         mx = arr[i+1];
+    //          if(curr_min != INT_MAX){
+    //             ans += mx - curr_min;
+    //             curr_min = INT_MAX;
+    //     }
+    //     }
+    //     else{
+    //         curr_min = min(curr_min, arr[i+1]);
+    //     }
+       
+        
+    // }
+    ll int ans = 0;
+    for(int i = 0; i < n-1; i++){
+        ans += max(arr[i]-arr[i+1], 0);
+    }
+    cout<<ans<<endl;
 }
 
 int main() {

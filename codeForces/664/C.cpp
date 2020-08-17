@@ -55,31 +55,40 @@ ll int pow(ll int x, ll int n,ll int mod){
     return (subprob * subprob)%mod;
 }
 void solve() {
-    int m,n;cin>>m>>n;
-    char arr[m+1][n+1];
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++){
-            cin>>arr[i][j];
-        }
-    }
-    int cnt = 0;
-    for(int i = 0; i < m; i++){
-        if(arr[i][n-1] == 'R'){
-            cnt++;
-        }
-    }
+    int n; int m;
+    vector<int> a;
+    vector<int> b;
     for(int i = 0; i < n; i++){
-        if(arr[m-1][i] == 'D'){
-            cnt++;
-        }
+        int t; cin>>t;
+        a.push_back(t);
     }
-    cout<<cnt<<endl;
+    for(int i = 0; i < m; i++){
+        int t; cin>>t;
+        b.push_back(t);
+    }
+    vector<int> c;
+
+    for(int i = 0; i < n; i++){
+        int m = INT_MIN;
+        for(int j = 0; j < m; j++){
+            if((a[i]&b[j]) >= m){
+                m = (a[i]&b[j]);
+            }
+        }
+        c.push_back(m);
+    }
+    int ans = 0;
+    for(auto x: c){
+        ans = x | ans;
+        deb(ans);
+    }
+    cout<<ans<<endl;
 }
 
 int main() {
     c_p_c();
     int t = 1;
-    cin >> t;
+    //scin >> t;
     while(t--) {
       solve();
     }

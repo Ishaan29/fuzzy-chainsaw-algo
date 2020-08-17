@@ -55,25 +55,38 @@ ll int pow(ll int x, ll int n,ll int mod){
     return (subprob * subprob)%mod;
 }
 void solve() {
-    int m,n;cin>>m>>n;
-    char arr[m+1][n+1];
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++){
-            cin>>arr[i][j];
-        }
-    }
-    int cnt = 0;
-    for(int i = 0; i < m; i++){
-        if(arr[i][n-1] == 'R'){
-            cnt++;
-        }
-    }
+    int n; cin>>n;
+    vector<int> arr;
     for(int i = 0; i < n; i++){
-        if(arr[m-1][i] == 'D'){
-            cnt++;
+        int t; cin>>t;
+        arr.push_back(t);
+    }
+    int curr_max = INT_MIN;
+    int mi = INT_MAX;
+    ll int result = 0;
+    int flag = 0;
+    for(int i = 0;i < n; i++){
+        if(curr_max <= arr[i]){
+            flag = 0;
+            if(mi != INT_MAX){
+                result += curr_max - mi;
+                mi = INT_MAX;
+            }
+            curr_max = arr[i];
+        }else if(mi > arr[i]){
+            mi = arr[i];
+            flag = 1;
+        }else{
+            if(arr[i] < mi){
+                mi = arr[i];
+            }
+            flag = 1;
         }
     }
-    cout<<cnt<<endl;
+    if(flag == 1){
+        result += curr_max - mi;
+    }
+    cout<<result<<endl;
 }
 
 int main() {

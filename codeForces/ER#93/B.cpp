@@ -54,26 +54,60 @@ ll int pow(ll int x, ll int n,ll int mod){
     }
     return (subprob * subprob)%mod;
 }
+void eraseSubStr(std::string & mainStr, const std::string & toErase)
+{
+    // Search for the substring in string
+    size_t pos = mainStr.find(toErase);
+    if (pos != std::string::npos)
+    {
+        // If found then erase it from string
+        mainStr.erase(pos, toErase.length());
+    }
+}
 void solve() {
-    int m,n;cin>>m>>n;
-    char arr[m+1][n+1];
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++){
-            cin>>arr[i][j];
-        }
-    }
-    int cnt = 0;
-    for(int i = 0; i < m; i++){
-        if(arr[i][n-1] == 'R'){
+    string s; cin>>s;
+    int a = 0; int b = 0;
+    int k = 1;
+    bool flag = false;
+   while(!flag){
+        int cnt = 0; int res = 0;
+        int e = 0; int z = 0;
+        for(int i = 0; i < s.length(); i++){
+
+        if(s[i] =='0'){
+            cnt = 0;
+            z++;
+            // st = INT_MAX; e = 0;
+        }else{
             cnt++;
+            res = max(cnt, res);
         }
+
+
     }
-    for(int i = 0; i < n; i++){
-        if(arr[m-1][i] == 'D'){
-            cnt++;
+        string sub = "";
+        for(int k = 0; k < res; k++){
+            sub += '1';
         }
+        eraseSubStr(s, sub);
+        if(k&1){
+            a += res;
+        }else{
+            b += res;
+        }
+        k++;
+        int c_z = 0;
+        for(int i = 0; i < s.length(); i++){
+            if(s[i] == '0'){
+                c_z++;
+            }
+        }
+        if(c_z == s.length()|| s.length() == 1){
+            flag = true;
+        }   
     }
-    cout<<cnt<<endl;
+    cout<<a<<endl;
+    
 }
 
 int main() {

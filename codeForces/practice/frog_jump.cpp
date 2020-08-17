@@ -7,6 +7,7 @@ using namespace std;
 #define fo(i,n) for(i=0;i<n;i++)
 #define Fo(i,k,n) for(i=k;k<n?i<n:i>n;k<n?i+=1:i-=1)
 #define ll long long
+#define pb push_back
 #define si(x)	scanf("%d",&x)
 #define sl(x)	scanf("%lld",&x)
 #define ss(s)	scanf("%s",s)
@@ -55,26 +56,18 @@ ll int pow(ll int x, ll int n,ll int mod){
     return (subprob * subprob)%mod;
 }
 void solve() {
-    int m,n;cin>>m>>n;
-    char arr[m+1][n+1];
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++){
-            cin>>arr[i][j];
-        }
+    string s; cin>>s;
+    vector<int> pos;
+    pos.pb(0);
+    for(int i = 0; i < int(s.size()); i++)
+        if(s[i] == 'R') pos.push_back(i+1);
+    pos.push_back(s.size() + 1);
+    int ans = 0;
+    for(int i = 0; i < int(pos.size())-1; i++){
+        ans = max(ans, pos[i+1] - pos[i]);
     }
-    int cnt = 0;
-    for(int i = 0; i < m; i++){
-        if(arr[i][n-1] == 'R'){
-            cnt++;
-        }
+    cout<<ans<<endl;
     }
-    for(int i = 0; i < n; i++){
-        if(arr[m-1][i] == 'D'){
-            cnt++;
-        }
-    }
-    cout<<cnt<<endl;
-}
 
 int main() {
     c_p_c();

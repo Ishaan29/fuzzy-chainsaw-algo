@@ -38,7 +38,7 @@ void c_p_c()
     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #ifndef ONLINE_JUDGE
     freopen("/Users/ishan/Desktop/fuzzy-chainsaw-algo/input.txt", "r", stdin);
-    freopen("/Users/ishan/Desktop/fuzzy-chainsaw-algo/output.txt", "w", stdout);
+    freopen("/Users/ishan/Desktop/fuzzy-chainsaw-algo/output2.txt", "w", stdout);
 #endif
 }
 const int mod = 1'000'000'007;
@@ -55,31 +55,40 @@ ll int pow(ll int x, ll int n,ll int mod){
     return (subprob * subprob)%mod;
 }
 void solve() {
-    int m,n;cin>>m>>n;
-    char arr[m+1][n+1];
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++){
-            cin>>arr[i][j];
-        }
-    }
-    int cnt = 0;
-    for(int i = 0; i < m; i++){
-        if(arr[i][n-1] == 'R'){
-            cnt++;
-        }
-    }
+    int n; cin>>n;
+    int _tf = 0; int _ft = 0; int _hn = 0;
     for(int i = 0; i < n; i++){
-        if(arr[m-1][i] == 'D'){
-            cnt++;
+        int cash; cin>>cash;
+        int ch = cash-25;
+        if(ch == 25 && _tf > 0){
+            _tf--;
+            _ft++;
+        }else if(ch == 0){
+            _tf++;
+        }else if(ch == 75){
+            if(_tf > 0 && _ft > 0){
+                _tf--;
+                _ft--;
+                _hn++;
+            }else if(_tf >= 3){
+                _tf -= 3;
+            }else{
+                cout<<"NO"<<endl;
+                return;
+            }
+        }else{
+            cout<<"NO"<<endl;
+            return;
         }
     }
-    cout<<cnt<<endl;
+    cout<<"YES"<<endl;
+    return;
 }
 
 int main() {
     c_p_c();
     int t = 1;
-    cin >> t;
+    //cin >> t;
     while(t--) {
       solve();
     }

@@ -4,7 +4,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
-#define fo(i,n) for(i=0;i<n;i++)
+#define FOR(i,n) for(i=0;i<n;i++)
 #define Fo(i,k,n) for(i=k;k<n?i<n:i>n;k<n?i+=1:i-=1)
 #define ll long long
 #define si(x)	scanf("%d",&x)
@@ -54,30 +54,51 @@ ll int pow(ll int x, ll int n,ll int mod){
     }
     return (subprob * subprob)%mod;
 }
+
+bool canPlace(vector<int> s, int n, int c, int min_sep){
+    int last_cow = s[0];
+    int cnt = 1;
+
+    for(int i = 1; i <= n; i++){
+        if(s[i] - last_cow >= min_sep){
+            last_cow = s[i];
+            cnt++;
+            if(cnt == c){
+                return true;
+            }
+        }
+    }
+    return false;
+}
 void solve() {
-    int m,n;cin>>m>>n;
-    char arr[m+1][n+1];
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++){
-            cin>>arr[i][j];
-        }
-    }
-    int cnt = 0;
-    for(int i = 0; i < m; i++){
-        if(arr[i][n-1] == 'R'){
-            cnt++;
-        }
-    }
+    int n; cin>>n;
+    int c; cin>>c;
+    vector<int> stands;
     for(int i = 0; i < n; i++){
-        if(arr[m-1][i] == 'D'){
-            cnt++;
+        int t; cin>>t;
+        stands.push_back(t);
+    }
+    sort(stands.begin(), stands.end());
+
+    int s = 0; 
+    int e = stands[n-1] - stands[0];
+    int ans = 0;
+    while(s <= e){ // convergence
+        int mid = (s+e) /2;
+        bool isPossible = canPlace(stands, n, c, mid);
+        if(isPossible){
+            ans = mid;
+            s = mid + 1;
+        }else {
+            e = mid - 1;
         }
     }
-    cout<<cnt<<endl;
+    cout<<ans<<endl;
+    return ;
 }
 
 int main() {
-    c_p_c();
+    //c_p_c();
     int t = 1;
     cin >> t;
     while(t--) {
