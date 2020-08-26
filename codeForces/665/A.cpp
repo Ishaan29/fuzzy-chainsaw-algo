@@ -55,41 +55,14 @@ ll int pow(ll int x, ll int n,ll int mod){
     return (subprob * subprob)%mod;
 }
 void solve() {
-    int n; cin>>n; ll int k; cin>>k;
-    vector<int> in;
-    int m = INT_MIN;
-    for(int i = 0; i < n; i++){
-        int t; cin>>t;
-        if(t >= m){
-            m = t;
-        }
-        in.push_back(t);
+    int n; cin>>n;
+    int k; cin>>k;
+    if((n/2) > k && n > 1){
+        cout<<0<<endl;
+        return;
     }
-    vector<int> one(n);
-    for(int i = 0; i < n; i++){
-        one[i] = (m-in[i]);
-    }
-    int mx = INT_MIN;
-    for(int i = 0; i < n; i++){
-        if(one[i] >= mx){
-            mx = one[i];
-        }
-    }
-
-    vector<int> two;
-    for(int i = 0; i < n; i++){
-       two.push_back(mx-one[i]);
-    }
-    if(k&1){
-        for(auto a: one){
-            cout<<a<<" ";
-        }
-    }else{
-        for(auto a: two){
-            cout<<a<<" ";
-        }
-    }
-    cout<<endl;
+    cout<<abs(n-k)<<endl;
+    return ;
 }
 
 int main() {
