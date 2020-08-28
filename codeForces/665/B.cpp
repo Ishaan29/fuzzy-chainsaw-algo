@@ -55,38 +55,32 @@ ll int pow(ll int x, ll int n,ll int mod){
     return (subprob * subprob)%mod;
 }
 void solve() {
-    int n; cin>>n;
-    vector<int> arr;
-    for(int i = 0; i < n; i++){
-        int t; cin>>t;
-        arr.push_back(t);
+    ll int a[3];
+    ll int b[3];
+    for(int i = 0; i < 3; i++){
+        cin>>a[i];
     }
-    int curr_max = INT_MIN;
-    int mi = INT_MAX;
-    ll int result = 0;
-    int flag = 0;
-    for(int i = 0;i < n; i++){
-        if(curr_max <= arr[i]){
-            flag = 0;
-            if(mi != INT_MAX){
-                result += curr_max - mi;
-                mi = INT_MAX;
-            }
-            curr_max = arr[i];
-        }else if(mi > arr[i]){
-            mi = arr[i];
-            flag = 1;
-        }else{
-            if(arr[i] < mi){
-                mi = arr[i];
-            }
-            flag = 1;
+    for(int i = 0; i < 3; i++){
+        cin>>b[i];
+    }
+    ll int dec = 0;
+    if(a[0] == b[0] && a[1] == b[1] && a[2] == b[2]){
+        cout<<0<<endl;
+        return;
+    }
+    if(a[0] < b[2]){
+        ll int rem = b[2] - a[0];
+        if(rem > 0 && a[1] > 0){
+            dec += min(a[1], rem);
+            rem -= dec;
+            dec *= 2;
+        }
+        if(rem >0){
+            dec  += 4*a[2] - (min(a[2], b[1]));
         }
     }
-    if(flag == 1){
-        result += curr_max - mi;
-    }
-    cout<<result<<endl;
+    cout<<2*(min(a[2],b[1])) - dec<<endl;
+    return;
 }
 
 int main() {

@@ -1,3 +1,11 @@
+/*
+    codeforces := https://codeforces.com/problemset/problem/996/A
+    Allen has a LOT of money. He has 𝑛 dollars in the bank. 
+    For security reasons, he wants to withdraw it in cash (we will not disclose the reasons here). 
+    The denominations for dollar bills are 1, 5, 10, 20, 100. What is the 
+    minimum number of bills Allen could receive after withdrawing his entire balance?
+*/
+
 /**
  * Author: Ishaan Bajpai
 **/
@@ -55,30 +63,24 @@ ll int pow(ll int x, ll int n,ll int mod){
     return (subprob * subprob)%mod;
 }
 void solve() {
-    int n; cin>>n;
-    map<int, int> f;
-    for(int i = 0; i < n; i++){
-        int t; cin>>t;
-        if(f.find(t) == f.end()){
-            f.insert({t,1});
-        }else{
-            f[t]++;
+    ll int n; cin>>n;
+    ll int dp[] = {0};
+    vector<int> coins = {1, 5, 10, 20, 100};
+    for(ll int i = 1; i <= n; i++){
+        dp[i] = INT_MAX;
+        for(auto coin: coins){
+            if(i - coin >= 0){
+                dp[i] = min(dp[i], dp[i - coin] + 1);
+            }
         }
     }
-    for(auto a: f){
-        if(a.second == n){
-            cout<<n<<endl;
-            return;
-        }
-    }
-    cout<<1<<endl;
-    return;
+    cout<<dp[n]<<endl;
 }
 
 int main() {
     c_p_c();
     int t = 1;
-    cin >> t;
+    //cin >> t;
     while(t--) {
       solve();
     }
