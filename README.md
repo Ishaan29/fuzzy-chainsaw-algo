@@ -12,11 +12,11 @@
 * Effective way to search in a sorted array. `O(log n)` time.
 * Steps to solve Binary Search Problem.
 ** Find if the problem shows a monotonic nature.
-*** MONOTONIC FUNCTIONS := Functions that are either non-increasing or non-decreasing.
+** `MONOTONIC FUNCTIONS` := Functions that are either non-increasing or non-decreasing.
 ** Find a Search Space. Mostly in problems the search space is not easly observable.
-*** SEARCH SPACE := space of values where the function can be optimized.
-*** search space should be monotonic to solve a problem using Binary Search.
-* EX := Finding the root of the number, aggressive cow etc.
+** `SEARCH SPACE` := space of values where the function can be optimized.
+** search space should be monotonic to solve a problem using Binary Search.
+** `EX := Finding the root of the number, aggressive cow etc.`
 
 ## __LINKEDLIST__
 
