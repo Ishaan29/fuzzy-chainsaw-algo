@@ -1,3 +1,6 @@
+/**
+ * Author: Ishaan Bajpai
+**/
 #include<bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
@@ -29,30 +32,53 @@ typedef vector<pii>		vpii;
 typedef vector<pl>		vpl;
 typedef vector<vi>		vvi;
 typedef vector<vl>		vvl;
-mt19937_64 rang(chrono::high_resolution_clock::now().time_since_epoch().count());
-int rng(int lim) {
-	uniform_int_distribution<int> uid(0,lim-1);
-	return uid(rang);
-}
-int mpow(int base, int exp); 
-void ipgraph(int n, int m);
-void dfs(int u, int par);
 
+void c_p_c()
+{
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#ifndef ONLINE_JUDGE
+    freopen("/Users/ishan/Desktop/fuzzy-chainsaw-algo/input.txt", "r", stdin);
+    freopen("/Users/ishan/Desktop/fuzzy-chainsaw-algo/output.txt", "w", stdout);
+#endif
+}
 const int mod = 1'000'000'007;
 const int N = 3e5, M = N;
 //=======================
-
-vi g[N];
-int a[N];
-
+ll int pow(ll int x, ll int n,ll int mod){
+    if(n == 0){
+        return  1;
+    }
+    ll int subprob = pow(x, n/2, mod)%mod;
+    if(n&1){
+        return (x * subprob * subprob)%mod;
+    }
+    return (subprob * subprob)%mod;
+}
 void solve() {
-  int i, j, n, m;
+    int n; cin>>n;
+    vector<int> arr;
+    int cnt = 0;
+    for(int i = 0; i < n; i++){
+        int t; cin>>t;
+        if(t == 1){
+            cnt++;
+        }
+        arr.push_back(t);
+    }
+    if(cnt > (n/2)){
+        cout<<n/2<<endl;
+        for(int i = 0; i < n/2; i++)
+            cout<<1<<" ";
+    }else if(cnt <= (n/2)){
+        cout<<n/2<<endl;
+        for(int i = 0; i < n/2; i++)
+            cout<<0<<" ";
+    }
+    cout<<endl;
 }
 
 int main() {
-    ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    srand(chrono::high_resolution_clock::now().time_since_epoch().count());
-
+    c_p_c();
     int t = 1;
     cin >> t;
     while(t--) {
@@ -60,32 +86,4 @@ int main() {
     }
 
     return 0;
-}
-
-int mpow(int base, int exp) {
-  base %= mod;
-  int result = 1;
-  while (exp > 0) {
-    if (exp & 1) result = ((ll)result * base) % mod;
-    base = ((ll)base * base) % mod;
-    exp >>= 1;
-  }
-  return result;
-}
-
-void ipgraph(int n, int m){
-	int i, u, v;
-	while(m--){
-		cin>>u>>v;
-    u--, v--;
-		g[u].pb(v);
-		g[v].pb(u);
-	}
-}
-
-void dfs(int u, int par){
-	for(int v:g[u]){
-		if (v == par) continue;
-		dfs(v, u);
-	}
 }
