@@ -36,7 +36,8 @@
         "string_view": "cpp",
         "unordered_map": "cpp",
         "unordered_set": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "algorithm": "cpp"
     },
     "python.pythonPath": "/usr/bin/python3",
     "code-runner.executorMap": {
