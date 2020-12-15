@@ -1,6 +1,33 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
+int f(vector<int> S, int m, int n){
+   int table[n+1]; 
+  
+    // Initialize all table values as 0 
+    memset(table, 0, sizeof(table)); 
+  
+    // Base case (If given value is 0) 
+    table[0] = 1; 
+  
+    // Pick all coins one by one and update the table[] values 
+    // after the index greater than or equal to the value of the 
+    // picked coin 
+    for(int i=0; i<m; i++) 
+        for(int j=S[i]; j<=n; j++) 
+            table[j] += table[j-S[i]]; 
+  
+    return table[n]; 
+}
+
+
+void solve(){
+    int n; cin>>n;
+    vector<int> coins(n);
+    for(int& c: coins) cin>>c;
+    int amt; cin>>amt;
+    cout<<f(coins, n, amt)<<endl;;
+}
 void c_p_c()
 {
     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
@@ -10,40 +37,11 @@ void c_p_c()
 #endif
 }
 
-int f(vector<int>& arr, int n, int k, vector<vector<int>>& dp){
-    if(n == 0 || k < 0){
-        return 0;
-    }
-    if(k == 0){
-        return 1;
-    }
-    if(dp[n-1][k-1] != -1){
-        return dp[n-1][k-1];
-    }
-    return dp[n-1][k-1] = f(arr, n, k-arr[n-1],dp) + f(arr,n-1, k,dp);
-}
-
-int money_change(vector<int>& arr, int k, int n){
-    int dp[n][k] = {0};
-    for(int i = 0 ; i < n; i++){
-    }
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; i <= k; j++){
-            dp[i][j] = dp[i-1][j] + (j >= s[i])?dp[i][j-s[i]]:0;
-        
-    }
-}
-
-int main() {
+int main(){
     c_p_c();
     int t; cin>>t;
     while(t--){
-        int n; cin>>n;
-        vector<int> arr(n);
-        for(int i = 0; i < n; i++) cin>>arr[i];
-        int k; cin>>k;
-        vector<vector<int>> dp(n, vector<int>(k,-1));
-        cout<<f(arr, n,k,dp)<<endl;
+        solve();
     }
-    return 0;
 }
+
